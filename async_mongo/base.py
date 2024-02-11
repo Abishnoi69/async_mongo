@@ -63,7 +63,7 @@ class AsyncBase(Generic[_DocumentType]):
         return hash(self.dispatch)
 
     def __repr__(self) -> str:
-        return type(self).__name__ + f"({self.dispatch!r})"
+        return f"{type(self).__name__}({self.dispatch!r})"
 
 
 class AsyncBaseProperty(AsyncBase):

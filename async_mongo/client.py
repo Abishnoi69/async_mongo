@@ -46,12 +46,8 @@ class AsyncClient(AsyncBaseProperty):
     dispatch: MongoClient
 
     def __init__(self, *args: Any, **kwargs: Any) -> None:
-        kwargs.update(
-            {
-                "driver": DriverInfo(
-                    "AsyncIOMongoDB", version="staging", platform="AsyncIO"
-                )
-            }
+        kwargs["driver"] = DriverInfo(
+            "AsyncIOMongoDB", version="staging", platform="AsyncIO"
         )
         dispatch = MongoClient(*args, **kwargs)
 
